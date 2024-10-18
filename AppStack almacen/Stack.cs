@@ -25,14 +25,13 @@ namespace AppStack_almacen
             {
                 head = newNode;
                 size++;
+                return;
             }
-            else
-            {
-                Node current = head;
-                newNode.Next = head;
-                head = newNode;
-                size++;
-            }
+
+            newNode.Next = head;
+            head = newNode;
+            size++;
+            return ;
         }
 
 
