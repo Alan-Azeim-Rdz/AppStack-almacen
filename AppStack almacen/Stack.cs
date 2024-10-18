@@ -9,10 +9,12 @@ namespace AppStack_almacen
     internal class Stack
     {
         Node top;
+        int size;
 
         public Stack() 
         {
             top = null;
+            size = 0;
         }
 
         // Método para insertar un elemento en la pila
@@ -22,12 +24,14 @@ namespace AppStack_almacen
             if (IsEmpty())
             {
                 top = newNode;
+                size++;
             }
             else
             {
                 Node current = top;
                 newNode.Next = top;
                 top = newNode;
+                size++;
             }
         }
 
@@ -42,6 +46,7 @@ namespace AppStack_almacen
 
             int dato = top.Datos;
             top = top.Next;
+            size--;
             return dato.ToString();
         }
 
@@ -64,7 +69,10 @@ namespace AppStack_almacen
             return top == null;
         }
 
-
+        public int Size() 
+        { 
+            return size; 
+        }
 
 
     }

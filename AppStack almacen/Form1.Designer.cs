@@ -28,18 +28,107 @@
         /// </summary>
         private void InitializeComponent()
         {
+            btnPush = new Button();
+            txtDato = new TextBox();
+            btnPop = new Button();
+            btnPeek = new Button();
+            lstPila = new ListBox();
+            label1 = new Label();
+            BtnSize = new Button();
             SuspendLayout();
+            // 
+            // btnPush
+            // 
+            btnPush.Location = new Point(103, 118);
+            btnPush.Name = "btnPush";
+            btnPush.Size = new Size(126, 53);
+            btnPush.TabIndex = 0;
+            btnPush.Text = "Push";
+            btnPush.UseVisualStyleBackColor = true;
+            btnPush.Click += btnPush_Click;
+            // 
+            // txtDato
+            // 
+            txtDato.Location = new Point(145, 41);
+            txtDato.Name = "txtDato";
+            txtDato.Size = new Size(156, 23);
+            txtDato.TabIndex = 1;
+            // 
+            // btnPop
+            // 
+            btnPop.Location = new Point(103, 195);
+            btnPop.Name = "btnPop";
+            btnPop.Size = new Size(126, 53);
+            btnPop.TabIndex = 2;
+            btnPop.Text = "Pop";
+            btnPop.UseVisualStyleBackColor = true;
+            btnPop.Click += btnPop_Click;
+            // 
+            // btnPeek
+            // 
+            btnPeek.Location = new Point(103, 275);
+            btnPeek.Name = "btnPeek";
+            btnPeek.Size = new Size(126, 53);
+            btnPeek.TabIndex = 3;
+            btnPeek.Text = "Peek";
+            btnPeek.UseVisualStyleBackColor = true;
+            btnPeek.Click += btnPeek_Click;
+            // 
+            // lstPila
+            // 
+            lstPila.Font = new Font("Tahoma", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lstPila.FormattingEnabled = true;
+            lstPila.ItemHeight = 42;
+            lstPila.Location = new Point(485, 11);
+            lstPila.Name = "lstPila";
+            lstPila.Size = new Size(453, 424);
+            lstPila.TabIndex = 4;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(38, 49);
+            label1.Name = "label1";
+            label1.Size = new Size(86, 15);
+            label1.TabIndex = 5;
+            label1.Text = "Dato a insertar:";
+            // 
+            // BtnSize
+            // 
+            BtnSize.Location = new Point(103, 354);
+            BtnSize.Name = "BtnSize";
+            BtnSize.Size = new Size(126, 53);
+            BtnSize.TabIndex = 6;
+            BtnSize.Text = "Size";
+            BtnSize.UseVisualStyleBackColor = true;
+            BtnSize.Click += BtnSize_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(981, 450);
+            Controls.Add(BtnSize);
+            Controls.Add(label1);
+            Controls.Add(lstPila);
+            Controls.Add(btnPeek);
+            Controls.Add(btnPop);
+            Controls.Add(txtDato);
+            Controls.Add(btnPush);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Button btnPush;
+        private TextBox txtDato;
+        private Button btnPop;
+        private Button btnPeek;
+        private ListBox lstPila;
+        private Label label1;
+        private Button BtnSize;
     }
 }
