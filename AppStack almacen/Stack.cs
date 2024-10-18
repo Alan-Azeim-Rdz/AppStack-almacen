@@ -8,12 +8,12 @@ namespace AppStack_almacen
 {
     internal class Stack
     {
-        Node top;
+        Node head;
         int size;
 
         public Stack() 
         {
-            top = null;
+            head = null;
             size = 0;
         }
 
@@ -23,14 +23,14 @@ namespace AppStack_almacen
             Node newNode = new Node(dato);
             if (IsEmpty())
             {
-                top = newNode;
+                head = newNode;
                 size++;
             }
             else
             {
-                Node current = top;
-                newNode.Next = top;
-                top = newNode;
+                Node current = head;
+                newNode.Next = head;
+                head = newNode;
                 size++;
             }
         }
@@ -44,8 +44,8 @@ namespace AppStack_almacen
                 return("La pila está vacía.");
             }
 
-            int dato = top.Datos;
-            top = top.Next;
+            int dato = head.Datos;
+            head = head.Next;
             size--;
             return dato.ToString();
         }
@@ -59,14 +59,14 @@ namespace AppStack_almacen
                 return("La pila está vacía.");
             }
 
-            return top.Datos.ToString();
+            return head.Datos.ToString();
         }
 
 
         // Método para verificar si la pila está vacía
         public bool IsEmpty()
         {
-            return top == null;
+            return head == null;
         }
 
         public int Size() 
