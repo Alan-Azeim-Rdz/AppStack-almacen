@@ -10,14 +10,14 @@ namespace AppStack_almacen
 
         private void btnPush_Click(object sender, EventArgs e)
         {
-            int dato;
-            if (int.TryParse(txtDato.Text, out dato))
+            try
             {
-                miPila.Push(dato);
-                ActualizarPila();
-                txtDato.Clear();
+                Node newNode = new Node(Convert.ToInt32(txtData.Text));
+                miPila.Push(newNode);
+                UpdateStack();
+                txtData.Clear();
             }
-            else
+            catch (FormatException)
             {
                 MessageBox.Show("Por favor, ingresa un número válido.");
             }
@@ -25,37 +25,43 @@ namespace AppStack_almacen
 
         private void btnPop_Click(object sender, EventArgs e)
         {
-            string resultado = miPila.Pop();
-            MessageBox.Show(resultado);
-            ActualizarPila();
+
+            if (!miPila.IsEmpty())
+            {
+                Node poppedNode = miPila.Pop();
+                UpdateStack();
+                MessageBox.Show("Elemento eliminado: " + poppedNode.Data);
+                return;
+            }
+            UpdateStack();
+            MessageBox.Show("La pila está vacía.");
+            return;
+
         }
 
         private void btnPeek_Click(object sender, EventArgs e)
         {
-            string resultado = miPila.Peek();
-            MessageBox.Show("Elemento en el tope: " + resultado);
+            Node topNode = miPila.Peek();
+            if (!miPila.IsEmpty())
+            {
+                MessageBox.Show("Elemento en el top: " + topNode.Data);
+                return;
+            }
+            MessageBox.Show("La pila está vacía.");
+            return;
         }
 
 
 
-        private void ActualizarPila()
+        private void UpdateStack()
         {
-            lstPila.Items.Clear();
-            Stack temporal = new Stack();
-            string elemento;
+            lstPila.Items.Clear(); // Limpia la lista antes de actualizar
+            Node currentNode = miPila.Peek(); // Asegúrate de que esto esté correctamente referenciado
 
-            // Mostrar los elementos en la pila
-            while (!miPila.IsEmpty())
+            while (currentNode != null)
             {
-                elemento = miPila.Pop();
-                lstPila.Items.Add(elemento);
-                temporal.Push(int.Parse(elemento));
-            }
-
-            // Restaurar los elementos en la pila original
-            while (!temporal.IsEmpty())
-            {
-                miPila.Push(int.Parse(temporal.Pop()));
+                lstPila.Items.Add(currentNode.Data);
+                currentNode = currentNode.Next;
             }
         }
 

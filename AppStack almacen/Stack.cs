@@ -8,65 +8,65 @@ namespace AppStack_almacen
 {
     internal class Stack
     {
-        Node head;
+        private Node top;
 
         public Stack() 
         {
-            head = null;
+            top = null;
         }
 
         // Método para insertar un elemento en la pila
-        public void Push(int dato)
+        public void Push(Node newNode)
         {
-            Node newNode = new Node(dato);
             if (IsEmpty())
             {
-                head = newNode;
+                top = newNode;
                 return;
             }
 
-            newNode.Next = head;
-            head = newNode;
+            newNode.Next = top;
+            top = newNode;
             return ;
         }
 
 
         // Método para eliminar y devolver el elemento en el tope de la pila
-        public string Pop()
+        public Node Pop()
         {
-            if (IsEmpty())
+            if (!IsEmpty())
             {
-                return("La pila está vacía.");
+                Node current = top;
+                top = top.Next;
+                current.Next = null;
+                return current;
             }
+            return null;
 
-            int dato = head.Datos;
-            head = head.Next;
-            return dato.ToString();
         }
 
 
         // Método para devolver el elemento en el tope de la pila sin eliminarlo
-        public string Peek()
+        public Node Peek()
         {
             if (IsEmpty())
             {
-                return("La pila está vacía.");
+                return null;
             }
 
-            return head.Datos.ToString();
+            return top; 
         }
 
 
         // Método para verificar si la pila está vacía
         public bool IsEmpty()
         {
-            return head == null;
+            return top == null;
         }
 
         public int Size() 
         {
             int count = 0;
-            Node current = head;
+            Node current = top;
 
             // Recorre la pila desde el frente hasta el final
             while (current != null)

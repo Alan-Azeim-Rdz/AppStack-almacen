@@ -8,13 +8,24 @@ namespace AppStack_almacen
 {
     internal class Node
     {
-        public int Datos { get; set; }
+        public int Data { get; set; }
         public Node Next { get; set; } // Apunta al siguiente nodo
 
-        public Node(int datos)
+        public Node()
         {
-            Datos = datos;
+            Data = 0;
             Next = null; // El siguiente nodo inicialmente es null
+        }
+
+        public Node(int data)
+        {
+            Data = data;
+            Next = null; // El siguiente nodo inicialmente es null
+        }
+
+        public override string ToString() 
+        {
+            return Data.ToString();
         }
     }
 }

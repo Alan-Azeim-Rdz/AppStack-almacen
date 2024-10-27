@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             btnPush = new Button();
-            txtDato = new TextBox();
+            txtData = new TextBox();
             btnPop = new Button();
             btnPeek = new Button();
             lstPila = new ListBox();
@@ -49,10 +49,10 @@
             // 
             // txtDato
             // 
-            txtDato.Location = new Point(145, 41);
-            txtDato.Name = "txtDato";
-            txtDato.Size = new Size(156, 23);
-            txtDato.TabIndex = 1;
+            txtData.Location = new Point(145, 41);
+            txtData.Name = "txtData";
+            txtData.Size = new Size(156, 23);
+            txtData.TabIndex = 1;
             // 
             // btnPop
             // 
@@ -113,7 +113,7 @@
             Controls.Add(lstPila);
             Controls.Add(btnPeek);
             Controls.Add(btnPop);
-            Controls.Add(txtDato);
+            Controls.Add(txtData);
             Controls.Add(btnPush);
             Name = "Form1";
             Text = "Form1";
@@ -124,7 +124,7 @@
         #endregion
 
         private Button btnPush;
-        private TextBox txtDato;
+        private TextBox txtData;
         private Button btnPop;
         private Button btnPeek;
         private ListBox lstPila;
